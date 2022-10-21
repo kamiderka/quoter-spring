@@ -18,12 +18,5 @@ public class IndexController {
         return "index";
     }
 
-    @PostMapping("/addQuote")
-    public String addQuote(@ModelAttribute Quote quote, Model model){
 
-        System.out.println(quote);
-        model.addAttribute("quoteForm", new Quote());
-
-        return "index";
-    }
 }
