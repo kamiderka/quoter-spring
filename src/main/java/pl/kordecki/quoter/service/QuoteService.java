@@ -19,6 +19,6 @@ public class QuoteService implements QuoteServiceAPI {
     @Override
     public void addNewQuote(Quote quote) {
 
-
+        quoteRepository.save(quote);
     }
 }
