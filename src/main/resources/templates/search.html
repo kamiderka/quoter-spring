@@ -6,7 +6,12 @@
 </head>
 <body>
 
-    <h1>Your Quotes:</h1>
+<h2>
+        <span>Quotes including: </span>
+        <small th:text="${searchValue}"  />
+    </h2>
+    <br>
+
     <tr th:each="quote: ${searchResult}">
         <td th:text="${quote.quoteContent}" />
         <td th:text="${quote.quoteAuthor}" />
