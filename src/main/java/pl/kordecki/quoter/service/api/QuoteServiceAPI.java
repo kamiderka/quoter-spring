@@ -8,4 +8,6 @@ public interface QuoteServiceAPI {
     public void addNewQuote(Quote quote);
 
     List<Quote> getAllQuotes();
+
+    List<Quote> searchQuote(String searchValue);
 }
