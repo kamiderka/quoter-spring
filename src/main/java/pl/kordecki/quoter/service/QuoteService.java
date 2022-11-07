@@ -28,4 +28,9 @@ public class QuoteService implements QuoteServiceAPI {
     public List<Quote> getAllQuotes() {
         return (List<Quote>) quoteRepository.findAll();
     }
+
+    @Override
+    public List<Quote> searchQuote(String searchValue) {
+        return quoteRepository.searchQuote(searchValue);
+    }
 }

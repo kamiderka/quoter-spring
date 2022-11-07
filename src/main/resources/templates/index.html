@@ -8,20 +8,28 @@
     <h2>Welcome to Quoter</h2>
     <br>
     <br>
-    <label>Search: <input type="search"></label>
+    <form th:action="@{/search}" th:method="POST">
+
+        <label for="searchValue">Search:
+            <input id="searchValue" th:name="searchValue" type="search"></label>
+
+        <button type="submit">Submit</button>
+    </form>
+
+
     <br>
     <br>
 
     <form th:action="@{/addQuote}" th:method="POST" th:object="${quoteForm}" >
 
         <label for="quoteContent">quoteContent: </label>
-        <input id="quoteContent" type="text" th:field="*{quoteContent}"> <br>
+            <input id="quoteContent" type="text" th:field="*{quoteContent}"> <br>
 
         <label for="quoteAuthor">quoteAuthor: </label>
-        <input id="quoteAuthor" type="text" th:field="*{quoteAuthor}"><br>
+            <input id="quoteAuthor" type="text" th:field="*{quoteAuthor}"><br>
 
         <label for="isFavourite">isFavourite: </label>
-        <input id="isFavourite" type="checkbox" th:field="*{isQuoteFavourite}"><br>
+            <input id="isFavourite" type="checkbox" th:field="*{isQuoteFavourite}"><br>
         <br>
         <button type="submit">Submit</button>
     </form>
