@@ -3,6 +3,7 @@ package pl.kordecki.quoter.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
@@ -14,9 +15,11 @@ public class Quote {
     private Integer quoteId;
 
     @Column(name = "quote_content")
+    @NotBlank
     private String quoteContent;
 
     @Column(name = "quote_author")
+    @NotBlank
     private String quoteAuthor;
 
     @Column(name = "is_quote_favourite")

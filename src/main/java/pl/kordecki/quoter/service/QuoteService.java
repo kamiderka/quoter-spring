@@ -6,6 +6,8 @@ import pl.kordecki.quoter.model.Quote;
 import pl.kordecki.quoter.repository.QuoteRepository;
 import pl.kordecki.quoter.service.api.QuoteServiceAPI;
 
+import java.util.List;
+
 @Service
 public class QuoteService implements QuoteServiceAPI {
 
@@ -20,5 +22,10 @@ public class QuoteService implements QuoteServiceAPI {
     public void addNewQuote(Quote quote) {
 
         quoteRepository.save(quote);
+    }
+
+    @Override
+    public List<Quote> getAllQuotes() {
+        return (List<Quote>) quoteRepository.findAll();
     }
 }
