@@ -6,6 +6,17 @@
 </head>
 <body>
 
+    <h1>Authors base:</h1>
+    <br>
+
+    <tr th:each="author: ${authorsList}">
+        <td th:text="${author.authorName}" />
+        <td th:text="${author.numberOfAuthorsQuotes}" />
+        <td th:text="${author.numberOfAuthorsFavourites}" />
+        <br>
+    </tr>
+
+
 
 
 </body>

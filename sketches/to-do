@@ -1,1 +1,4 @@
 - handle @NotBlank exception
+
+"SELECT quote_author, count(quote_content) AS num_quotes, sum(is_quote_favourite) AS fav_quotes FROM quotes.quote\n" +
+            "GROUP BY quote_author;"

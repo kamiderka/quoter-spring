@@ -7,6 +7,7 @@ import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 import pl.kordecki.quoter.model.Quote;
 import pl.kordecki.quoter.service.api.QuoteServiceAPI;
 
@@ -24,14 +25,13 @@ public class QuoteController {
     }
 
 
-
     @PostMapping("/addQuote")
-    public String addQuote(@ModelAttribute Quote quote, Model model) {
+    public RedirectView addQuote(@ModelAttribute Quote quote, Model model) {
 
         //System.out.println(quote);
         model.addAttribute("quoteForm", new Quote());
         quoteService.addNewQuote(quote);
-        return "index";
+        return new RedirectView("/");
     }
 
     @GetMapping("/quotes")
@@ -40,7 +40,7 @@ public class QuoteController {
         return "quotes";
     }
 
-
+    //Params?
     @RequestMapping(value = "/search", method = {RequestMethod.POST, RequestMethod.GET})
     public String searchQuote(@ModelAttribute("searchValue") String searchValue, Model model){
 
