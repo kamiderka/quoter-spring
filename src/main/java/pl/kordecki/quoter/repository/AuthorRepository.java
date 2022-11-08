@@ -14,8 +14,11 @@ public interface AuthorRepository extends CrudRepository<Author, String> {
 
     @Modifying
     @Transactional
-    @Query(value = "REPLACE INTO quotes.author SELECT quote_author, count(quote_content) AS num_quotes, sum(is_quote_favourite) AS fav_quotes FROM quotes.quote \n" +
-            "GROUP BY quote_author", nativeQuery = true)
+    @Query(value = "INSERT INTO quotes.author(author_name,num_quotes,fav_quotes)\n" +
+            "SELECT quote_author, num_quot, fav_quot \n" +
+            "FROM (SELECT quote_author, count(quote_content) AS num_quot, sum(is_quote_favourite) AS fav_quot FROM quotes.quote \n" +
+            "GROUP BY quote_author) AS T1\n" +
+            "ON DUPLICATE KEY UPDATE num_quotes=num_quot, fav_quotes=fav_quot", nativeQuery = true)
     void refreshAuthors();
 
 
