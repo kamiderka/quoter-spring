@@ -5,5 +5,5 @@ import pl.kordecki.quoter.model.Author;
 
 
 public interface AuthorServiceAPI {
-    List<Author> getAuthors();
+    List<Author> getAllAuthors();
 }

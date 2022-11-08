@@ -25,14 +25,6 @@ public class QuoteController {
     }
 
 
-    @PostMapping("/addQuote")
-    public RedirectView addQuote(@ModelAttribute Quote quote, Model model) {
-
-        //System.out.println(quote);
-        model.addAttribute("quoteForm", new Quote());
-        quoteService.addNewQuote(quote);
-        return new RedirectView("/");
-    }
 
     @GetMapping("/quotes")
     public String listQuotes(Model model) {
@@ -40,7 +32,7 @@ public class QuoteController {
         return "quotes";
     }
 
-    //Params?
+    //Maybe Params method?
     @RequestMapping(value = "/search", method = {RequestMethod.POST, RequestMethod.GET})
     public String searchQuote(@ModelAttribute("searchValue") String searchValue, Model model){
 

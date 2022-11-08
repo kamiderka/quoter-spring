@@ -19,9 +19,9 @@ public class AuthorService implements AuthorServiceAPI {
     }
 
     @Override
-    public List<Author> getAuthors() {
+    public List<Author> getAllAuthors() {
 
-        authorRepository.refreshAuthors(); //Trzeba naprawić problem z REPLACE
+        authorRepository.refreshAuthors();
 
         return authorRepository.getAuthors();
     }
