@@ -2,6 +2,7 @@ package pl.kordecki.quoter.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.kordecki.quoter.model.Author;
 import pl.kordecki.quoter.model.Quote;
 import pl.kordecki.quoter.repository.QuoteRepository;
 import pl.kordecki.quoter.service.api.QuoteServiceAPI;
@@ -33,4 +34,6 @@ public class QuoteService implements QuoteServiceAPI {
     public List<Quote> searchQuote(String searchValue) {
         return quoteRepository.searchQuote(searchValue);
     }
+
+
 }
